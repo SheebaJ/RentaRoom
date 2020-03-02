@@ -37,23 +37,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :images %>
-    <%= form.text_field :images %>
-  </div>
-
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
+    <%= form.label :image %>
+    <%= form.file_field :images , multiple: false %>
   </div>
 
   <div class="field">
     <%= form.label :city_id %>
-    <%= form.text_field :city_id %>
+    <%= form.collection_select :city_id, City.all, :id, :name, prompt: "Select City" %><br/>
   </div>
 
   <div class="actions">

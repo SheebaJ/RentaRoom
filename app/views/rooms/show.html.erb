@@ -27,11 +27,8 @@
 
 <p>
   <strong>Images:</strong>
-  <%= @room.images %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
+  <%= image_tag(@room.images_url) %><br/><br/>
+</p>binding
   <%= @room.latitude %>
 </p>
 
@@ -42,8 +39,16 @@
 
 <p>
   <strong>City:</strong>
-  <%= @room.city %>
+  <%= @room.city_id %>
 </p>
+
+ <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    
+    src="https://www.google.com/maps/embed/v1/place?key=<%= ENV.fetch('API_KEY') %>&q='<%=@room.address%>'">
+   </iframe>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
